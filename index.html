@@ -1,1 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Royal Chautari | Affordable Comfort in Butwal, Nepal</title>
+<meta name="description" content="Hotel Royal Chautari on Buddha Path, Butwal. Clean, comfortable rooms from NPR 1,200/night. Friendly service, restaurant & bar, free Wi-Fi and parking. Book direct for the best rates.">
+<style>
+  :root{
+    --teal:#1F4E4A;
+    --teal-dark:#163a37;
+    --gold:#C9A227;
+    --cream:#FAF6EF;
+    --charcoal:#2B2B2B;
+    --muted:#6b6b6b;
+    --white:#ffffff;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    color:var(--charcoal);
+    background:var(--cream);
+    line-height:1.65;
+  }
+  h1,h2,h3{line-height:1.2;color:var(--teal-dark);}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .container{max-width:1140px;margin:0 auto;padding:0 22px;}
+  .btn{
+    display:inline-block;padding:13px 26px;border-radius:50px;
+    font-weight:600;font-size:.95rem;transition:.25s;cursor:pointer;border:none;
+  }
+  .btn-primary{background:var(--gold);color:#1a1a1a;}
+  .btn-primary:hover{background:#b08d1f;transform:translateY(-2px);}
+  .btn-outline{background:transparent;color:var(--white);border:2px solid var(--white);}
+  .btn-outline:hover{background:var(--white);color:var(--teal);}
+  .btn-teal{background:var(--teal);color:#fff;}
+  .btn-teal:hover{background:var(--teal-dark);transform:translateY(-2px);}
+  section{padding:80px 0;}
+  .section-title{text-align:center;margin-bottom:12px;font-size:2rem;}
+  .section-sub{text-align:center;color:var(--muted);max-width:620px;margin:0 auto 48px;}
 
+  /* HEADER */
+  header{
+    position:sticky;top:0;z-index:100;background:rgba(31,78,74,.97);
+    backdrop-filter:blur(6px);color:#fff;
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;max-width:1140px;margin:0 auto;}
+  .logo{font-weight:700;font-size:1.15rem;letter-spacing:.5px;}
+  .logo span{color:var(--gold);}
+  .nav-links{display:flex;gap:26px;font-size:.92rem;}
+  .nav-links a{opacity:.9;transition:.2s;}
+  .nav-links a:hover{opacity:1;color:var(--gold);}
+  .nav-cta{display:inline-block;padding:9px 20px;border-radius:50px;background:var(--gold);color:#1a1a1a;font-weight:600;font-size:.88rem;}
+  .menu-toggle{display:none;font-size:1.5rem;background:none;border:none;color:#fff;cursor:pointer;}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:88vh;display:flex;align-items:center;
+    background:linear-gradient(rgba(22,58,55,.72),rgba(22,58,55,.72)),
+      url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    color:#fff;text-align:center;padding:60px 22px;
+  }
+  .hero-content{max-width:780px;margin:0 auto;}
+  .hero h1{font-size:clamp(2rem,5vw,3.4rem);color:#fff;margin-bottom:18px;}
+  .hero p{font-size:clamp(1rem,2vw,1.2rem);opacity:.95;margin-bottom:34px;}
+  .hero-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+  /* BOOKING BAR */
+  .booking-bar{
+    background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);
+    max-width:900px;margin:-46px auto 0;position:relative;z-index:10;
+    padding:22px;display:grid;grid-template-columns:repeat(4,1fr) auto;gap:14px;align-items:end;
+  }
+  .booking-bar label{display:block;font-size:.75rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;}
+  .booking-bar input,.booking-bar select{
+    width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:.92rem;background:#fafafa;
+  }
+  .booking-bar .btn{width:100%;}
+
+  /* WHY US */
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .feature{background:#fff;border-radius:var(--radius);padding:30px 22px;text-align:center;box-shadow:var(--shadow);transition:.25s;}
+  .feature:hover{transform:translateY(-5px);}
+  .feature .icon{font-size:2rem;margin-bottom:12px;}
+  .feature h3{font-size:1.05rem;margin-bottom:8px;}
+  .feature p{font-size:.9rem;color:var(--muted);}
+
+  /* ROOMS */
+  .rooms{background:#fff;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .room-card{background:var(--cream);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:.25s;display:flex;flex-direction:column;}
+  .room-card:hover{transform:translateY(-6px);}
+  .room-img{height:200px;background-size:cover;background-position:center;}
+  .room-body{padding:24px;display:flex;flex-direction:column;flex:1;}
+  .room-body h3{margin-bottom:6px;}
+  .price{color:var(--gold);font-weight:700;font-size:1.05rem;margin-bottom:12px;}
+  .price small{color:var(--muted);font-weight:400;font-size:.8rem;}
+  .room-body ul{list-style:none;font-size:.88rem;color:var(--muted);margin-bottom:18px;flex:1;}
+  .room-body ul li{padding:3px 0;}
+  .room-body ul li::before{content:"✓ ";color:var(--teal);font-weight:700;}
+
+  /* REVIEWS */
+  .reviews{background:var(--teal);color:#fff;}
+  .reviews .section-title,.reviews .section-sub{color:#fff;}
+  .reviews .section-sub{opacity:.85;}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
+  .review{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);padding:28px;}
+  .stars{color:var(--gold);margin-bottom:10px;font-size:1.05rem;}
+  .review p{font-style:italic;opacity:.95;margin-bottom:14px;}
+  .review .who{font-size:.88rem;opacity:.75;}
+
+  /* DINING */
+  .dining{background:#fff;}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+  .split-img{border-radius:var(--radius);height:340px;background-size:cover;background-position:center;box-shadow:var(--shadow);}
+  .split h2{font-size:1.9rem;margin-bottom:16px;}
+  .split p{color:var(--muted);margin-bottom:22px;}
+
+  /* CONTACT */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  .contact-info div{margin-bottom:18px;}
+  .contact-info strong{display:block;color:var(--teal);font-size:.85rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;}
+  .contact-info a{color:var(--charcoal);}
+  form{background:#fff;padding:30px;border-radius:var(--radius);box-shadow:var(--shadow);}
+  form input,form textarea{
+    width:100%;padding:12px 14px;border:1px solid #ddd;border-radius:8px;font-family:inherit;font-size:.92rem;margin-bottom:14px;background:#fafafa;
+  }
+  form textarea{resize:vertical;min-height:110px;}
+  form button{width:100%;}
+
+  /* FLOATING WHATSAPP */
+  .float-wa{
+    position:fixed;bottom:22px;right:22px;z-index:200;
+    background:#25D366;color:#fff;width:58px;height:58px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:1.7rem;
+    box-shadow:0 8px 22px rgba(37,211,102,.45);transition:.25s;
+  }
+  .float-wa:hover{transform:scale(1.08);}
+
+  /* FOOTER */
+  footer{background:var(--teal-dark);color:#fff;padding:50px 0 24px;font-size:.9rem;}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px;margin-bottom:34px;}
+  footer h4{margin-bottom:14px;color:var(--gold);font-size:.95rem;letter-spacing:.5px;}
+  footer a{opacity:.85;transition:.2s;}
+  footer a:hover{opacity:1;color:var(--gold);}
+  footer ul{list-style:none;}
+  footer ul li{margin-bottom:8px;}
+  .copyright{border-top:1px solid rgba(255,255,255,.15);padding-top:20px;text-align:center;opacity:.65;font-size:.82rem;}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .booking-bar{grid-template-columns:1fr 1fr;}
+    .grid-4,.grid-3{grid-template-columns:1fr 1fr;}
+    .split,.contact-grid,.grid-2{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+  }
+  @media(max-width:640px){
+    .nav-links,.nav-cta{display:none;}
+    .menu-toggle{display:block;}
+    .nav-links.open{
+      display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;
+      background:var(--teal);padding:20px 22px;gap:16px;
+    }
+    .booking-bar{grid-template-columns:1fr;margin-top:20px;}
+    .grid-4,.grid-3{grid-template-columns:1fr;}
+    section{padding:56px 0;}
+    .hero{min-height:72vh;}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="nav">
+    <div class="logo">Hotel Royal <span>Chautari</span></div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#rooms">Rooms</a>
+      <a href="#dining">Dining</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#location">Location</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Book Now</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>A Warm Welcome in the Heart of Butwal</h1>
+    <p>Comfortable rooms, friendly service, and honest prices — right on Buddha Path.</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn btn-primary">Book Your Stay</a>
+      <a href="#rooms" class="btn btn-outline">View Rooms</a>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING BAR -->
+<div class="container">
+  <form class="booking-bar" onsubmit="handleBooking(event)">
+    <div>
+      <label for="checkin">Check-in</label>
+      <input type="date" id="checkin" required>
+    </div>
+    <div>
+      <label for="checkout">Check-out</label>
+      <input type="date" id="checkout" required>
+    </div>
+    <div>
+      <label for="guests">Guests</label>
+      <select id="guests">
+        <option>1 Guest</option>
+        <option selected>2 Guests</option>
+        <option>3 Guests</option>
+        <option>4 Guests</option>
+        <option>5+ Guests</option>
+      </select>
+    </div>
+    <div>
+      <label for="roomtype">Room</label>
+      <select id="roomtype">
+        <option>Standard</option>
+        <option>Deluxe</option>
+        <option>Family</option>
+      </select>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-teal">Check Availability</button>
+    </div>
+  </form>
+</div>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="container">
+    <h2 class="section-title">Why Stay With Us</h2>
+    <p class="section-sub">Everything you need for a comfortable stay — without the premium price tag.</p>
+    <div class="grid-4">
+      <div class="feature">
+        <div class="icon">🛏️</div>
+        <h3>Comfortable Rooms</h3>
+        <p>Clean, quiet, and well-equipped for a restful night's sleep.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">📍</div>
+        <h3>Prime Location</h3>
+        <p>Steps from Buddha Path — easy access to shops, transport and Lumbini.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🤝</div>
+        <h3>Friendly Service</h3>
+        <p>24-hour front desk and staff who genuinely care about your stay.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">💰</div>
+        <h3>Honest Value</h3>
+        <p>Great comfort from just NPR 1,200 per night. No hidden surprises.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOMS -->
+<section class="rooms" id="rooms">
+  <div class="container">
+    <h2 class="section-title">Our Rooms</h2>
+    <p class="section-sub">Choose the room that fits your trip — all include free Wi-Fi, hot water, and daily housekeeping.</p>
+    <div class="grid-3">
+      <div class="room-card">
+        <div class="room-img" style="background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80')"></div>
+        <div class="room-body">
+          <h3>Standard Room</h3>
+          <div class="price">NPR 1,200 <small>/ night</small></div>
+          <ul>
+            <li>Double bed</li>
+            <li>Free Wi-Fi &amp; TV</li>
+            <li>Hot water</li>
+            <li>Daily housekeeping</li>
+          </ul>
+          <a href="#contact" class="btn btn-teal" style="text-align:center;">Book This Room</a>
+        </div>
+      </div>
+      <div class="room-card">
+        <div class="room-img" style="background-image:url('https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80')"></div>
+        <div class="room-body">
+          <h3>Deluxe Room</h3>
+          <div class="price">NPR 1,800 <small>/ night</small></div>
+          <ul>
+            <li>Larger space</li>
+            <li>City view</li>
+            <li>Work desk</li>
+            <li>Free Wi-Fi &amp; TV</li>
+          </ul>
+          <a href="#contact" class="btn btn-teal" style="text-align:center;">Book This Room</a>
+        </div>
+      </div>
+      <div class="room-card">
+        <div class="room-img" style="background-image:url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=800&q=80')"></div>
+        <div class="room-body">
+          <h3>Family Room</h3>
+          <div class="price">NPR 2,500 <small>/ night</small></div>
+          <ul>
+            <li>Sleeps up to 4</li>
+            <li>Extra space</li>
+            <li>Ideal for families</li>
+            <li>Free Wi-Fi &amp; TV</li>
+          </ul>
+          <a href="#contact" class="btn btn-teal" style="text-align:center;">Book This Room</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <h2 class="section-title">What Our Guests Say</h2>
+    <p class="section-sub">Real words from real travellers.</p>
+    <div class="grid-2">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"The staff were so friendly and helpful — great value for the price. The location made getting around Butwal so easy."</p>
+        <div class="who">— Guest review, Booking.com</div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★☆</div>
+        <p>"Perfect location and good food. Clean room and a warm welcome. Would stay again on my next visit."</p>
+        <div class="who">— Guest review, Google Maps</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DINING -->
+<section class="dining" id="dining">
+  <div class="container">
+    <div class="split">
+      <div class="split-img" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80')"></div>
+      <div>
+        <h2>Good Food, Good Mood</h2>
+        <p>Our in-house restaurant and bar serve fresh Nepali and Indian favourites, plus continental options — from hearty breakfasts to relaxed evening drinks. Room service is available throughout the day.</p>
+        <a href="#contact" class="btn btn-teal">Ask About Our Menu</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="container">
+    <h2 class="section-title">Right Where You Need to Be</h2>
+    <p class="section-sub">Located on Buddha Path in central Butwal — minutes from the bus park, markets and major temples, and a comfortable base for day trips to Lumbini, the birthplace of Buddha.</p>
+    <div style="border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.08);">
+      <iframe
+        src="https://www.google.com/maps?q=Hotel+Royal+Chautari,+Buddha+Path,+Butwal,+Nepal&output=embed"
+        width="100%" height="380" style="border:0;" allowfullscreen loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade" title="Hotel location map"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="rooms" id="contact" style="background:#fff;">
+  <div class="container">
+    <h2 class="section-title">Book Your Stay</h2>
+    <p class="section-sub">Send us an enquiry and we'll get back to you quickly — or reach us directly by phone or WhatsApp.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div>
+          <strong>Address</strong>
+          Buddha Path, Butwal, Rupandehi, Nepal
+        </div>
+        <div>
+          <strong>Phone</strong>
+          <a href="tel:+9770000000000">+977-00-0000000</a>
+        </div>
+        <div>
+          <strong>WhatsApp</strong>
+          <a href="https://wa.me/9770000000000" target="_blank" rel="noopener">Chat with us</a>
+        </div>
+        <div>
+          <strong>Email</strong>
+          <a href="mailto:info@hotelroyalchautari.com">info@hotelroyalchautari.com</a>
+        </div>
+        <div>
+          <strong>Front Desk</strong>
+          Open 24 hours, every day
+        </div>
+        <div style="font-size:.85rem;color:var(--muted);margin-top:24px;">
+          ⚠️ Replace the phone number, WhatsApp link and email above with your real details before publishing.
+        </div>
+      </div>
+      <form onsubmit="handleEnquiry(event)">
+        <input type="text" placeholder="Your name" required>
+        <input type="email" placeholder="Email address" required>
+        <input type="tel" placeholder="Phone number">
+        <input type="text" placeholder="Check-in – Check-out (e.g. 12–15 Nov)">
+        <textarea placeholder="Tell us about your stay (guests, room type, special requests)" required></textarea>
+        <button type="submit" class="btn btn-primary">Send Enquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/9770000000000" class="float-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">💬</a>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Hotel Royal Chautari</h4>
+        <p style="opacity:.85;">A warm, affordable stay in the heart of Butwal. Clean rooms, friendly faces, and honest prices — your home away from home in Nepal.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#rooms">Rooms &amp; Rates</a></li>
+          <li><a href="#dining">Dining</a></li>
+          <li><a href="#reviews">Guest Reviews</a></li>
+          <li><a href="#location">Location</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Buddha Path, Butwal, Nepal</li>
+          <li><a href="tel:+9770000000000">+977-00-0000000</a></li>
+          <li><a href="mailto:info@hotelroyalchautari.com">info@hotelroyalchautari.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© <span id="year"></span> Hotel Royal Chautari. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  document.getElementById('menuToggle').addEventListener('click', function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  // Close menu when a link is clicked
+  document.querySelectorAll('#navLinks a').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Booking form handler
+  function handleBooking(e){
+    e.preventDefault();
+    var ci = document.getElementById('checkin').value;
+    var co = document.getElementById('checkout').value;
+    var g  = document.getElementById('guests').value;
+    var r  = document.getElementById('roomtype').value;
+    alert('Booking enquiry received!\n\nCheck-in: ' + ci + '\nCheck-out: ' + co +
+          '\nGuests: ' + g + '\nRoom: ' + r +
+          '\n\nWe will confirm availability and contact you shortly.\n(Connect this form to your email or booking engine.)');
+  }
+
+  // Enquiry form handler
+  function handleEnquiry(e){
+    e.preventDefault();
+    alert('Thank you! Your enquiry has been received. We will be in touch shortly.\n(Connect this form to your email or booking engine.)');
+    e.target.reset();
+  }
+</script>
+</body>
+</html>
